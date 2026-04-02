@@ -78,7 +78,7 @@ async function saveEntry() {
   const btn = document.querySelector(".btn-save");
   btn.textContent = "Saving...";
 
-  const res = await fetch(`${SUPABASE_URL}/rest/v1/history`, {
+  const res = await fetch(`${SUPABASE_URL}/CashBalancing/history`, {
     method: "POST",
     headers,
     body: JSON.stringify({
@@ -103,7 +103,7 @@ async function saveEntry() {
 }
 
 async function deleteEntry(id) {
-  await fetch(`${SUPABASE_URL}/rest/v1/history?id=eq.${id}`, {
+  await fetch(`${SUPABASE_URL}/CashBalancing/history?id=eq.${id}`, {
     method: "DELETE",
     headers,
   });
@@ -111,7 +111,7 @@ async function deleteEntry(id) {
 }
 
 async function loadHistory() {
-  const res = await fetch(`${SUPABASE_URL}/rest/v1/history?order=id.desc`, {
+  const res = await fetch(`${SUPABASE_URL}/CashBalancing/history?order=id.desc`, {
     headers,
   });
   const data = await res.json();
@@ -183,7 +183,7 @@ async function clearHistory() {
   if (countEl.textContent === "0 entries") return;
   if (!confirm("Clear all history entries?")) return;
 
-  await fetch(`${SUPABASE_URL}/rest/v1/history?id=gt.0`, {
+  await fetch(`${SUPABASE_URL}/CashBalancing/history?id=gt.0`, {
     method: "DELETE",
     headers,
   });
