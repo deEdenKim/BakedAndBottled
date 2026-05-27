@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Euro Cash Register</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div>
+      <h1>Cash Register</h1>
+      <p>Euro denominations · daily reconciliation</p>
+    </div>
+    <span class="euro-mark">€</span>
+  </header>
+
+  <div class="shell">
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tab-btn active" onclick="showTab('calc', this)">Calculator</button>
+      <button class="tab-btn" id="hist-tab-btn" onclick="showTab('hist', this)">History</button>
+    </div>
+
+    <!-- CALCULATOR PAGE -->
+    <div id="page-calc">
+      <div class="total-strip">
+        <span class="lbl">Total</span>
+        <span class="amt" id="total">€ 0.00</span>
+      </div>
+
+      <div class="sec">Coins</div>
+      <div class="row"><span class="denom">€ 0.10</span><span class="dlabel">10 cents</span><input type="number" min="0" placeholder="0" data-val="0.10" oninput="liveCalc()"><span class="subtot empty" id="s0">—</span></div>
+      <div class="row"><span class="denom">€ 0.20</span><span class="dlabel">20 cents</span><input type="number" min="0" placeholder="0" data-val="0.20" oninput="liveCalc()"><span class="subtot empty" id="s1">—</span></div>
+      <div class="row"><span class="denom">€ 0.50</span><span class="dlabel">50 cents</span><input type="number" min="0" placeholder="0" data-val="0.50" oninput="liveCalc()"><span class="subtot empty" id="s2">—</span></div>
+      <div class="row"><span class="denom">€ 1.00</span><span class="dlabel">1 euro</span><input type="number" min="0" placeholder="0" data-val="1.00" oninput="liveCalc()"><span class="subtot empty" id="s3">—</span></div>
+      <div class="row"><span class="denom">€ 2.00</span><span class="dlabel">2 euros</span><input type="number" min="0" placeholder="0" data-val="2.00" oninput="liveCalc()"><span class="subtot empty" id="s4">—</span></div>
+
+      <div class="sec">Banknotes</div>
+      <div class="row"><span class="denom">€ 5</span><span class="dlabel">5 euros</span><input type="number" min="0" placeholder="0" data-val="5.00" oninput="liveCalc()"><span class="subtot empty" id="s5">—</span></div>
+      <div class="row"><span class="denom">€ 10</span><span class="dlabel">10 euros</span><input type="number" min="0" placeholder="0" data-val="10.00" oninput="liveCalc()"><span class="subtot empty" id="s6">—</span></div>
+      <div class="row"><span class="denom">€ 20</span><span class="dlabel">20 euros</span><input type="number" min="0" placeholder="0" data-val="20.00" oninput="liveCalc()"><span class="subtot empty" id="s7">—</span></div>
+      <div class="row"><span class="denom">€ 50</span><span class="dlabel">50 euros</span><input type="number" min="0" placeholder="0" data-val="50.00" oninput="liveCalc()"><span class="subtot empty" id="s8">—</span></div>
+
+      <div class="actions">
+        <button class="btn-save" onclick="saveEntry()">Save to history</button>
+        <button class="btn-clear" onclick="clearAll()">Clear</button>
+      </div>
+    </div>
+
+    <!-- HISTORY PAGE -->
+    <div id="page-hist" class="hist-page">
+      <div class="hist-toolbar">
+        <span class="hist-count" id="hist-count">0 entries</span>
+        <button class="btn-clrall" onclick="clearHistory()">Clear all</button>
+      </div>
+      <div id="hist-body">
+        <div class="hist-empty">No entries yet.<br>Save a calculation from the Calculator tab.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
