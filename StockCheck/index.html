@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stock Check</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="page">
+    <div class="page-header">
+      <div>
+        <h1 class="page-title">Stock Check</h1>
+        <p class="page-sub" id="date-sub"></p>
+      </div>
+      <span class="page-icon" aria-hidden="true">🌿</span>
+    </div>
+
+    <div class="card">
+      <div class="tab-bar">
+        <button class="tab-btn active" data-tab="floor">Floor</button>
+        <button class="tab-btn" data-tab="warehouse">Warehouse</button>
+        <button class="tab-btn" data-tab="history">History</button>
+      </div>
+
+      <div id="tab-floor"></div>
+      <div id="tab-warehouse" class="hidden"></div>
+      <div id="tab-history" class="hidden"></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
